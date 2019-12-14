@@ -51,7 +51,7 @@ class HomePageAction implements ServerMiddlewareInterface
     {
         // TODO: Handle exceptions.
         // TODO: Make the API URL configurable.
-        $json = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=Category:' . $category . '&cmlimit=50&format=json');
+        $json = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=Category:' . \urlencode($category) . '&cmlimit=50&format=json');
         $result = json_decode($json, true);
 
         if (!array_key_exists('query', $result) || !array_key_exists('categorymembers', $result['query'])) {
@@ -80,7 +80,7 @@ class HomePageAction implements ServerMiddlewareInterface
     
             // TODO: Handle exceptions.
             // TODO: Make the API URL configurable.
-            $url = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=true&exintro=true&pageids=' . $pageIds . '&format=json';
+            $url = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=true&exintro=true&pageids=' . \urlencode($pageIds) . '&format=json';
             $json = file_get_contents($url );
 
             $result = json_decode($json, true);
