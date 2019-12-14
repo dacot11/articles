@@ -1,0 +1,12 @@
+{% block content %}
+    <h1>Scored articles by category</h1>
+    <form action="/" method="post">
+        <input type=text name=category value="{{category}}">
+        <input type="submit" value="Find">
+    </form>
+
+    {% for article in articles %}
+        <li>{{ article['title'] }} | {{ article['score'] }}</li>
+    {% endfor %}
+
+{% endblock %}
