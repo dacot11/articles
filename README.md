@@ -21,8 +21,15 @@ It uses ['davechild/textstatistics'](https://github.com/DaveChild/Text-Statistic
 
 `composer install`
 
+
+## Run
+
 `docker-compose up`
 
 Go to (http://localhost:8002/)
+
+## Run tests
+
+`composer test`
 
 
